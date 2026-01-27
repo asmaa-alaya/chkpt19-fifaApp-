@@ -1,0 +1,45 @@
+.banner {
+    width: 100%;
+    height: 90vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    background-image: url('https://png.pngtree.com/thumb_back/fh260/background/20230907/pngtree-soccer-pitch-grass-line-image_13315655.jpg');
+    background-size: cover;
+}
+
+.banner .slider {
+    position: absolute;
+    width: 200px;
+    height: 250px;
+    top: 10%;
+    left: calc(50% - 100px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: autoRun 20s linear infinite;
+
+}
+
+@keyframes autoRun {
+    from {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(0deg);
+    }
+
+    to {
+        transform: perspective(1000px) rotateX(-10deg) rotateY(360deg);
+    }
+}
+
+.banner .slider .item {
+    position: absolute;
+    inset: 0 0 0 0;
+    transform:
+        rotateY(calc((var(--position) - 1) * (360deg / var(--quantity)))) translateZ(550px);
+
+}
+
+.banner .slider .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
